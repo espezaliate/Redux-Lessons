@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 import bankReducer from "./bank";
 import counterReducer from "./counter";
@@ -10,9 +11,10 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
-
-console.log(store);
 
 export default store;

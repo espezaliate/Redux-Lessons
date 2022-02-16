@@ -1,10 +1,18 @@
 import "./App.css";
+import BankPage from "./BankPage";
 import Counter from "./Counter";
+
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <header className="App-header">
+        <div className="container">
+          <Counter />
+          <BankPage />
+        </div>
+      </header>
     </div>
   );
 }

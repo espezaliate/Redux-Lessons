@@ -24,4 +24,18 @@ export const decrement = (value = 1) => ({
   value,
 });
 
+export const asyncIncrement = (value = 1) => {
+  return (dispatch) =>
+    setTimeout(() => {
+      dispatch(increment(value));
+    }, 1000);
+};
+
+export const asyncDecrement = (value = 1) => {
+  return (dispatch) =>
+    setTimeout(() => {
+      dispatch(decrement(value));
+    }, 1000);
+};
+
 export default counterReducer;
